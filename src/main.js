@@ -1,4 +1,3 @@
-import './style.css';
 
 const likeBtn = document.querySelector('#likeBtn');
 let liked = false;
