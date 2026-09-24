@@ -15,7 +15,7 @@ function ProfileCard({ name, role, avatarUrl, email, github, skills }: ProfileCa
 
   return (
     <article className="card">
-      {avatarUrl && <img src={avatarUrl} alt={name} className="avatar" />}
+      {avatarUrl && <img src={`${import.meta.env.BASE_URL}profile.png`} alt={name} className="avatar" />}
       <h2>{name}</h2>
       <p className="role">{role}</p>
       <p className="bio">
