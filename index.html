@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dilnaz - Personal Profile</title>
+
+    <!-- tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="src/style.css">
+</head>
+
+<body class="bg-gray-50 text-gray-900">
+
+    <header class="p-6 bg-white shadow-sm text-center">
+        <h1 class="text-3xl font-bold">Dilnaz - Personal Profile</h1>
+        <p class="text-gray-600 mt-1">Future Web Developer</p>
+    </header>
+
+    <main class="flex justify-center p-6">
+
+        <!-- the card -->
+        <article class="card flex flex-col items-center gap-4 max-w-lg w-full">
+
+            <img src="profile.png" alt="Dilnaz" class="avatar">  
+                      
+            <h2 class="text-2xl font-semibold">Dilnaz</h2>
+
+            <p class="text-center text-gray-700">
+                Hello! My name is Dilnaz. I want to learn more about creating
+                websites during this course.
+            </p>
+
+            <ul class="flex gap-6">
+                <li>
+                    <a href="mailto:d_yeshmukhambet@kbtu.kz" class="text-blue-600 underline">
+                        Email
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/Dilnazz0" target="_blank" rel="noopener" class="text-blue-600 underline">
+                        Github
+                    </a>
+                </li>
+            </ul>
+
+            <button id="likeBtn" class="btn">Like</button>
+
+        </article>
+
+    </main>
+
+    <footer class="p-6 text-center text-sm text-gray-500">
+        <p>&copy; 2026 Dilnaz</p>
+    </footer>
+
+    <script src="src/main.js"></script>
+</body>
+
+</html>
