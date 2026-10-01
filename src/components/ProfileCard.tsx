@@ -1,19 +1,19 @@
-import { useState } from 'react';
+import LikeButton from './LikeButton'
 
 type ProfileCardProps = {
-  name: string;
-  role: string;
-  avatarUrl?: string;
-  email: string;
-  github: string;
-};
+  name: string
+  role: string
+  avatarUrl?: string
+  email: string
+  github: string
+}
 
 function ProfileCard({ name, role, avatarUrl, email, github }: ProfileCardProps) {
-  const [liked, setLiked] = useState(false);
-
   return (
     <article className="card">
-      {avatarUrl && <img src={`${import.meta.env.BASE_URL}profile.png`} alt={name} className="avatar" />}
+      {avatarUrl && (
+        <img src={`${import.meta.env.BASE_URL}profile.png`} alt={name} className="avatar" />
+      )}
       <h2>{name}</h2>
       <p className="role">{role}</p>
       <p className="bio">
@@ -21,26 +21,12 @@ function ProfileCard({ name, role, avatarUrl, email, github }: ProfileCardProps)
         websites during this course.
       </p>
       <ul className="links">
-        <li>
-          <a href={`mailto:${email}`}>Email</a>
-        </li>
-        <li>
-          <a href={github} target="_blank" rel="noopener noreferrer">
-            GitHub
-          </a>
-        </li>
+        <li><a href={`mailto:${email}`}>Email</a></li>
+        <li><a href={github} target="_blank" rel="noopener noreferrer">GitHub</a></li>
       </ul>
-
-      
-      <button
-        type="button"
-        className={liked ? 'btn liked' : 'btn'}
-        onClick={() => setLiked(!liked)}
-      >
-        {liked ? '💜 Liked' : 'Like'}
-      </button>
+      <LikeButton />
     </article>
-  );
+  )
 }
 
-export default ProfileCard;
+export default ProfileCard
