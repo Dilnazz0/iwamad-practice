@@ -19,7 +19,7 @@ body {
 }
 
 .header p {
-  margin: 6px 0 0;
+  margin: 16px 0 0;
   color: #6b7280;
 }
 
@@ -140,4 +140,28 @@ body {
   text-align: center;
   font-size: 14px;
   color: #6b7280;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 26px;
+}
+
+.nav a {
+  color: #6b7280;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.nav a:hover {
+  color: #7c3aed;
+}
+
+.nav a.active {
+  color: #7c3aed;
+  background: #f3f0ff;
 }

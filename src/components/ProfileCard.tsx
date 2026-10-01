@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import SkillBadge, { type Skill } from './SkillBadge';
 
 type ProfileCardProps = {
   name: string;
@@ -7,10 +6,9 @@ type ProfileCardProps = {
   avatarUrl?: string;
   email: string;
   github: string;
-  skills: Skill[];
 };
 
-function ProfileCard({ name, role, avatarUrl, email, github, skills }: ProfileCardProps) {
+function ProfileCard({ name, role, avatarUrl, email, github }: ProfileCardProps) {
   const [liked, setLiked] = useState(false);
 
   return (
@@ -32,17 +30,6 @@ function ProfileCard({ name, role, avatarUrl, email, github, skills }: ProfileCa
           </a>
         </li>
       </ul>
-
-      <h3>Skills</h3>
-      {skills.length === 0 ? (
-        <p className="empty">No skills added yet.</p>
-      ) : (
-        <ul className="skills">
-          {skills.map((skill) => (
-            <SkillBadge key={skill.id} skill={skill} />
-          ))}
-        </ul>
-      )}
 
       
       <button
