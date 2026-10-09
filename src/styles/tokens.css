@@ -1,9 +1,9 @@
 :root {
   /* colours */
-  --color-primary: #1d4ed8;
+  --color-primary: #7c3aed;       /* changed from #1d4ed8 (my preference,contrast 5.69:1 with white) */
   --color-on-primary: #ffffff;
   --color-text: #1f2937;
-  --color-text-muted: #6b7280;   /* fixed: was #9ca3af (2.5:1 → 4.6:1) */
+  --color-text-muted: #6b7280;    /* was #9ca3af,contrast 2.49:1 → 4.83:1 */
   --color-surface: #ffffff;
   --color-border: #d1d5db;
 

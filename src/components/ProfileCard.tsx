@@ -1,4 +1,5 @@
 import LikeButton from './LikeButton'
+import Card from './ui/Card'
 
 type ProfileCardProps = {
   name: string
@@ -10,7 +11,7 @@ type ProfileCardProps = {
 
 function ProfileCard({ name, role, avatarUrl, email, github }: ProfileCardProps) {
   return (
-    <article className="card">
+    <Card>
       {avatarUrl && (
         <img src={`${import.meta.env.BASE_URL}profile.png`} alt={name} className="avatar" />
       )}
@@ -25,7 +26,7 @@ function ProfileCard({ name, role, avatarUrl, email, github }: ProfileCardProps)
         <li><a href={github} target="_blank" rel="noopener noreferrer">GitHub</a></li>
       </ul>
       <LikeButton />
-    </article>
+    </Card>
   )
 }
 

@@ -1,7 +1,9 @@
+import Card from '../components/ui/Card'
+
 function ContactPage() {
   return (
     <main className="main">
-      <section className="card">
+      <Card>
         <h2>Contact</h2>
         <ul className="links">
           <li>
@@ -13,7 +15,7 @@ function ContactPage() {
             </a>
           </li>
         </ul>
-      </section>
+      </Card>
     </main>
   )
 }

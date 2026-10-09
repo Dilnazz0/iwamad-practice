@@ -1,3 +1,4 @@
+import Card from '../components/ui/Card'
 import SkillBadge, { type Skill } from '../components/SkillBadge'
 
 const skills: Skill[] = [
@@ -10,7 +11,7 @@ const skills: Skill[] = [
 function SkillsPage() {
   return (
     <main className="main">
-      <section className="card">
+      <Card>
         <h2>Skills</h2>
         {skills.length === 0 ? (
           <p className="empty">No skills added yet.</p>
@@ -21,7 +22,7 @@ function SkillsPage() {
             ))}
           </ul>
         )}
-      </section>
+      </Card>
     </main>
   )
 }
