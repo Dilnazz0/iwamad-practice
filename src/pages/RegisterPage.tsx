@@ -1,5 +1,6 @@
-import { useState, type ChangeEvent, type SubmitEvent } from 'react'
+import { useState, type ChangeEvent, type SubmitEvent, type FocusEvent } from 'react'
 import Button from '../components/ui/Button'
+import TextField from '../components/ui/TextField'
 import { validateRegistration, type RegistrationValues } from '../lib/validateRegistration'
 
 const initialValues: RegistrationValues = {
@@ -12,6 +13,8 @@ const initialValues: RegistrationValues = {
 
 function RegisterPage() {
   const [values, setValues] = useState<RegistrationValues>(initialValues)
+  const [touched, setTouched] = useState<Partial<Record<keyof RegistrationValues, boolean>>>({})
+  const [submitAttempted, setSubmitAttempted] = useState(false)
   const [registered, setRegistered] = useState(false)
 
   const errors = validateRegistration(values)
@@ -24,11 +27,21 @@ function RegisterPage() {
     }))
   }
 
+  function handleBlur(event: FocusEvent<HTMLInputElement>) {
+    const { name } = event.target
+    setTouched((current) => ({ ...current, [name]: true }))
+  }
+
   function handleSubmit(event: SubmitEvent<HTMLFormElement>) {
     event.preventDefault()
+    setSubmitAttempted(true)
     if (Object.keys(errors).length === 0) {
       setRegistered(true)
     }
+  }
+
+  function showError(field: keyof RegistrationValues): string | undefined {
+    return touched[field] || submitAttempted ? errors[field] : undefined
   }
 
   if (registered) {
@@ -42,53 +55,45 @@ function RegisterPage() {
   return (
     <main className="main">
       <form onSubmit={handleSubmit} noValidate>
-        <div className="field">
-          <label htmlFor="fullName">Full name</label>
-          <input
-            id="fullName"
-            name="fullName"
-            type="text"
-            value={values.fullName}
-            onChange={handleChange}
-          />
-          {errors.fullName && <p className="field-error">{errors.fullName}</p>}
-        </div>
+        <TextField
+          label="Full name"
+          name="fullName"
+          type="text"
+          value={values.fullName}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          error={showError('fullName')}
+        />
 
-        <div className="field">
-          <label htmlFor="email">Email</label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            value={values.email}
-            onChange={handleChange}
-          />
-          {errors.email && <p className="field-error">{errors.email}</p>}
-        </div>
+        <TextField
+          label="Email"
+          name="email"
+          type="email"
+          value={values.email}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          error={showError('email')}
+        />
 
-        <div className="field">
-          <label htmlFor="password">Password</label>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            value={values.password}
-            onChange={handleChange}
-          />
-          {errors.password && <p className="field-error">{errors.password}</p>}
-        </div>
+        <TextField
+          label="Password"
+          name="password"
+          type="password"
+          value={values.password}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          error={showError('password')}
+        />
 
-        <div className="field">
-          <label htmlFor="confirmPassword">Confirm password</label>
-          <input
-            id="confirmPassword"
-            name="confirmPassword"
-            type="password"
-            value={values.confirmPassword}
-            onChange={handleChange}
-          />
-          {errors.confirmPassword && <p className="field-error">{errors.confirmPassword}</p>}
-        </div>
+        <TextField
+          label="Confirm password"
+          name="confirmPassword"
+          type="password"
+          value={values.confirmPassword}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          error={showError('confirmPassword')}
+        />
 
         <div className="check">
           <input
@@ -97,10 +102,13 @@ function RegisterPage() {
             type="checkbox"
             checked={values.acceptTerms}
             onChange={handleChange}
+            onBlur={handleBlur}
           />
           <label htmlFor="acceptTerms">Accept the terms</label>
         </div>
-        {errors.acceptTerms && <p className="field-error">{errors.acceptTerms}</p>}
+        {showError('acceptTerms') && (
+          <p className="field-error">{showError('acceptTerms')}</p>
+        )}
 
         <Button type="submit">Create account</Button>
       </form>
