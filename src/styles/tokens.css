@@ -6,6 +6,7 @@
   --color-text-muted: #6b7280;    /* was #9ca3af,contrast 2.49:1 → 4.83:1 */
   --color-surface: #ffffff;
   --color-border: #d1d5db;
+  --color-error: #b91c1c;
 
   /* spacing */
   --space-2: 8px;
