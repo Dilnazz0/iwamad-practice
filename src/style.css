@@ -1,0 +1,174 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  background: #f9fafb;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+.header {
+  padding: var(--space-6);
+  background: var(--color-surface);
+  text-align: center;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: var(--space-4); 
+}
+
+.logo-icon {
+  display: block;
+  width: 32px;
+  height: 32px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.header p {
+  margin: var(--space-2) 0 0;
+  color: var(--color-text-muted);
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.nav a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 4px 8px;
+  border-radius: var(--radius-md);
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}
+
+.nav a.active {
+  text-decoration: underline;
+}
+
+.likes-count {
+  color: var(--color-primary);
+  font-weight: 600;
+  padding: 4px 8px;
+  white-space: nowrap;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  min-width: 0;
+  padding: 50px 24px;
+}
+
+.main .ui-card {
+  width: 100%;
+  max-width: 460px;
+  min-width: 0;
+  gap: 9px;
+}
+
+.avatar {
+  width: 200px;
+  height: 200px;
+  max-width: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.role {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 15px;
+}
+
+.bio {
+  margin: 4px 0 0;
+  text-align: center;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 0;
+}
+
+.links a {
+  color: var(--color-primary);
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: var(--radius-md);
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2);
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 0;
+}
+
+.empty {
+  color: var(--color-text-muted);
+  font-style: italic;
+  font-size: 14px;
+}
+
+.footer {
+  padding: var(--space-6);
+  text-align: center;
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 640px) {
+  .nav {
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--space-6);
+  }
+}
+
+@media (max-width: 639px) {
+  .header h1 {
+    font-size: 24px;
+  }
+
+  .main {
+    padding: var(--space-6) var(--space-4);
+  }
+}
